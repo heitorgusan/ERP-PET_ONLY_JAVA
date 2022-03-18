@@ -31,6 +31,7 @@ public class Start {
 			//Client Menu
 			System.out.println("1-Ver Clientes");
 			System.out.println("2-Adcionar Cliente");	
+			System.out.println("3-Editar Cliente");	
 			opcaoNumber = leitor.nextInt();
 			leitor.nextLine();
 			
@@ -41,7 +42,8 @@ public class Start {
 				ClientesRelatorio.exibirClientes(customers,false);
 				
 				System.out.println("--------Fim Clientes--------");
-
+				String [] parametro = {};
+				Start.main(parametro);
 				
 			}else if(opcaoNumber == 2) {
 				//Cadastrar Clientes
@@ -77,14 +79,42 @@ public class Start {
 					
 				Customer clienteSelecionado = customers.get(opcaoNumber);
 					
-				System.out.println("---Cliente abaixo---");
-				System.out.println("Nome: "+clienteSelecionado.getName());
-				System.out.println("Email: " + clienteSelecionado.getEmail());
-				System.out.println("Celular: "+clienteSelecionado.getMobileNumber());
-				System.out.println("Endereço: "+clienteSelecionado.getAddress());
-				System.out.println("--------------------");
-					
+				ClientesRelatorio.exibirUnicoCliente(clienteSelecionado);
 				
+				System.out.println("O quê você deseja editar????");
+				System.out.println("1-Nome");
+				System.out.println("2-Email");
+				System.out.println("3-Celular");
+				System.out.println("4-Endereço");
+				opcaoNumber = leitor.nextInt();
+				leitor.nextLine();
+				
+				switch(opcaoNumber) {
+					case 1:
+						System.out.println("Digite o novo nome abaixo");
+						opcaoText = leitor.nextLine();
+						clienteSelecionado.setName(opcaoText);
+						break;
+					case 2:
+						System.out.println("Digite o novo email abaixo");
+						opcaoText = leitor.nextLine();
+						clienteSelecionado.setEmail(opcaoText);
+						break;
+					case 3:
+						System.out.println("Digite o novo celular abaixo");
+						opcaoText = leitor.nextLine();
+						clienteSelecionado.setMobileNumber(opcaoText);
+						break;
+					case 4:
+						System.out.println("Digite o novo endereço abaixo");
+						opcaoText = leitor.nextLine();
+						clienteSelecionado.setAddress(opcaoText);
+						break;
+				}
+				System.out.println("Cliente Editado com Sucesso!!");
+				ClientesRelatorio.exibirUnicoCliente(clienteSelecionado);
+				String [] parametro = {};
+				Start.main(parametro);
 			}
 			
 			
