@@ -33,7 +33,7 @@ public class Start {
 			
 			//Client Menu
 			System.out.println("1-Ver Clientes");
-			System.out.println("2-Adcionar Cliente");	
+			System.out.println("2-Adicionar Cliente");	
 			System.out.println("3-Acessar/Editar Cliente");	
 			opcaoNumber = leitor.nextInt();
 			leitor.nextLine();
@@ -91,55 +91,59 @@ public class Start {
 			}else {
 			
 				//Editar cliente
+				
 				ClientesRelatorio.exibirClientes(customers, true);
-				System.out.println("Digite o número de Id do cliente para edição");
-				opcaoNumber = leitor.nextInt();
-				leitor.nextLine();
-					
-				Customer clienteSelecionado = customers.get(opcaoNumber);
-					
-				ClientesRelatorio.exibirUnicoCliente(clienteSelecionado);
-				System.out.println("1-Cadastrar um novo animal");
-				System.out.println("2-Editar informações cliente");
-				opcaoNumber = leitor.nextInt();
-				leitor.nextLine();
-				if(opcaoNumber == 1) {
-					Animal animal = new Animal();
-					AnimaisServicos.cadastrarAnimal(animal);
-					clienteSelecionado.addAnimal(animal);
-				}else {
-					System.out.println("O quê você deseja editar????");
-					System.out.println("1-Nome");
-					System.out.println("2-Email");
-					System.out.println("3-Celular");
-					System.out.println("4-Endereço");
+				if(!customers.isEmpty()) {
+					System.out.println("Digite o número de Id do cliente para edição");
 					opcaoNumber = leitor.nextInt();
 					leitor.nextLine();
 					
-					switch(opcaoNumber) {
-					case 1:
-						System.out.println("Digite o novo nome abaixo");
-						opcaoText = leitor.nextLine();
-						clienteSelecionado.setName(opcaoText);
-						break;
-					case 2:
-						System.out.println("Digite o novo email abaixo");
-						opcaoText = leitor.nextLine();
-						clienteSelecionado.setEmail(opcaoText);
-						break;
-					case 3:
-						System.out.println("Digite o novo celular abaixo");
-						opcaoText = leitor.nextLine();
-						clienteSelecionado.setMobileNumber(opcaoText);
-						break;
-					case 4:
-						System.out.println("Digite o novo endereço abaixo");
-						opcaoText = leitor.nextLine();
-						clienteSelecionado.setAddress(opcaoText);
-						break;
-					}
-					System.out.println("Cliente Editado com Sucesso!!");
+					Customer clienteSelecionado = customers.get(opcaoNumber);
+					
 					ClientesRelatorio.exibirUnicoCliente(clienteSelecionado);
+					System.out.println("1-Cadastrar um novo animal");
+					System.out.println("2-Editar informações cliente");
+					opcaoNumber = leitor.nextInt();
+					leitor.nextLine();
+					if(opcaoNumber == 1) {
+						Animal animal = new Animal();
+						AnimaisServicos.cadastrarAnimal(animal);
+						clienteSelecionado.addAnimal(animal);
+					}else {
+						System.out.println("O quê você deseja editar????");
+						System.out.println("1-Nome");
+						System.out.println("2-Email");
+						System.out.println("3-Celular");
+						System.out.println("4-Endereço");
+						opcaoNumber = leitor.nextInt();
+						leitor.nextLine();
+						
+						switch(opcaoNumber) {
+						case 1:
+							System.out.println("Digite o novo nome abaixo");
+							opcaoText = leitor.nextLine();
+							clienteSelecionado.setName(opcaoText);
+							break;
+						case 2:
+							System.out.println("Digite o novo email abaixo");
+							opcaoText = leitor.nextLine();
+							clienteSelecionado.setEmail(opcaoText);
+							break;
+						case 3:
+							System.out.println("Digite o novo celular abaixo");
+							opcaoText = leitor.nextLine();
+							clienteSelecionado.setMobileNumber(opcaoText);
+							break;
+						case 4:
+							System.out.println("Digite o novo endereço abaixo");
+							opcaoText = leitor.nextLine();
+							clienteSelecionado.setAddress(opcaoText);
+							break;
+						}
+						System.out.println("Cliente Editado com Sucesso!!");
+						ClientesRelatorio.exibirUnicoCliente(clienteSelecionado);
+						
+					}
 					
 				}
 				String [] parametro = {};
