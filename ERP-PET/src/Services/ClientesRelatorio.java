@@ -2,6 +2,7 @@ package Services;
 
 import java.util.List;
 
+import Domain.CustomerAnimals.Animal;
 import Domain.CustomerAnimals.Customer;
 
 public class ClientesRelatorio {
@@ -9,7 +10,11 @@ public class ClientesRelatorio {
 		System.out.println("----------");
 		if(exibirIndex == false) {			
 			for(Customer c : customers) {
-				System.out.println(c.getName());
+				String animaisCliente ="";
+				for(Animal animal : c.getAnimals()) {
+					animaisCliente+=" - "+animal.getName();
+				}
+				System.out.println(c.getName()+" "+animaisCliente);
 			}
 			
 		}else {

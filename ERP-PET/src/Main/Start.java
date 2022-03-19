@@ -8,6 +8,8 @@ import Domain.CustomerAnimals.Animal;
 import Domain.CustomerAnimals.Customer;
 import Domain.CustomerAnimals.Invoice;
 import Domain.CustomerAnimals.Species;
+import Services.AnimaisRelatorio;
+import Services.AnimaisServicos;
 import Services.ClientesRelatorio;
 
 public class Start {
@@ -32,7 +34,7 @@ public class Start {
 			//Client Menu
 			System.out.println("1-Ver Clientes");
 			System.out.println("2-Adcionar Cliente");	
-			System.out.println("3-Editar Cliente");	
+			System.out.println("3-Acessar/Editar Cliente");	
 			opcaoNumber = leitor.nextInt();
 			leitor.nextLine();
 			
@@ -68,31 +70,16 @@ public class Start {
 				opcaoText = leitor.nextLine();
 				cliente.setAddress(opcaoText);
 				
-				System.out.println("Deseja cadastrar um animal do "+cliente.getName()+" ?");
+				System.out.println("Deseja cadastrar um animal para o(a) "+cliente.getName()+" ?");
 				System.out.println("1-Sim");
 				System.out.println("2-Não");
 				opcaoNumber = leitor.nextInt();
 				leitor.nextLine();
 				if(opcaoNumber == 1) {
 					Animal animal = new Animal();
-					System.out.println("-----Cadastro Animal-------------");
-					System.out.println("---Nome Animal---");
-					opcaoText = leitor.nextLine();
-					animal.setName(opcaoText);
-					System.out.println("---Especie---");
-					System.out.println("1-Cachorro");
-					System.out.println("2-Gato");
-					opcaoNumber = leitor.nextInt();
-					leitor.nextLine();
-					if(opcaoNumber == Species.DOG.ID) {
-						animal.setSpecies(Species.DOG);
-					}else {
-						animal.setSpecies(Species.CAT);
-					}
-					
-					System.out.println("---Raça---");
-					opcaoText = leitor.nextLine();
-					animal.setBreed(opcaoText);
+					AnimaisServicos.cadastrarAnimal(animal);
+					cliente.addAnimal(animal);
+					AnimaisRelatorio.exibirAnimal(animal);
 					
 				}else {
 					
@@ -112,16 +99,24 @@ public class Start {
 				Customer clienteSelecionado = customers.get(opcaoNumber);
 					
 				ClientesRelatorio.exibirUnicoCliente(clienteSelecionado);
-				
-				System.out.println("O quê você deseja editar????");
-				System.out.println("1-Nome");
-				System.out.println("2-Email");
-				System.out.println("3-Celular");
-				System.out.println("4-Endereço");
+				System.out.println("1-Cadastrar um novo animal");
+				System.out.println("2-Editar informações cliente");
 				opcaoNumber = leitor.nextInt();
 				leitor.nextLine();
-				
-				switch(opcaoNumber) {
+				if(opcaoNumber == 1) {
+					Animal animal = new Animal();
+					AnimaisServicos.cadastrarAnimal(animal);
+					clienteSelecionado.addAnimal(animal);
+				}else {
+					System.out.println("O quê você deseja editar????");
+					System.out.println("1-Nome");
+					System.out.println("2-Email");
+					System.out.println("3-Celular");
+					System.out.println("4-Endereço");
+					opcaoNumber = leitor.nextInt();
+					leitor.nextLine();
+					
+					switch(opcaoNumber) {
 					case 1:
 						System.out.println("Digite o novo nome abaixo");
 						opcaoText = leitor.nextLine();
@@ -142,9 +137,11 @@ public class Start {
 						opcaoText = leitor.nextLine();
 						clienteSelecionado.setAddress(opcaoText);
 						break;
+					}
+					System.out.println("Cliente Editado com Sucesso!!");
+					ClientesRelatorio.exibirUnicoCliente(clienteSelecionado);
+					
 				}
-				System.out.println("Cliente Editado com Sucesso!!");
-				ClientesRelatorio.exibirUnicoCliente(clienteSelecionado);
 				String [] parametro = {};
 				Start.main(parametro);
 			}
