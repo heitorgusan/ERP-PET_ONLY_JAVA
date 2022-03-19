@@ -7,15 +7,19 @@ import java.util.Scanner;
 import Domain.CustomerAnimals.Animal;
 import Domain.CustomerAnimals.Customer;
 import Domain.CustomerAnimals.Invoice;
+import Domain.CustomerAnimals.ProdServ;
 import Domain.CustomerAnimals.Species;
 import Services.AnimaisRelatorio;
 import Services.AnimaisServicos;
 import Services.ClientesRelatorio;
+import Services.ProdServRelatorios;
+import Services.ProdServServicos;
 
 public class Start {
 	
 	static List<Customer> customers = new ArrayList<Customer>();
 	static List<Invoice> invoices = new ArrayList<Invoice>();
+	static List<ProdServ> produtosServicos = new ArrayList<ProdServ>();
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -23,8 +27,9 @@ public class Start {
 		
 		int opcaoNumber;
 		String opcaoText;
-		System.out.println("1-Clientes");
-		System.out.println("2-Vendas");
+		System.out.println("1 - Clientes");
+		System.out.println("2 - Vendas");
+		System.out.println("3 - Produtos e Serviços");
 		opcaoNumber = leitor.nextInt();
 		leitor.nextLine();
 		
@@ -151,11 +156,42 @@ public class Start {
 			}
 			
 			
-		}else {
+		}else if(opcaoNumber == 2){
 			//Opção 2 Vendas
 			
+		}else {
+			//Produtos e Serviços
+			System.out.println("1 - Ver lista de Produtos");
+			System.out.println("2 - Ver lista de Serviços");
+			System.out.println("3 - Criar novo Produto");
+			System.out.println("4 - Criar novo Serviço");
+			opcaoNumber = leitor.nextInt();
+			leitor.nextLine();
+			
+			
+			if(opcaoNumber == 1) {
+		
+				ProdServRelatorios.exibirProdServ(produtosServicos, true);
+				
+			}else if(opcaoNumber == 2) {
+				ProdServRelatorios.exibirProdServ(produtosServicos, false);
+				
+			}else if(opcaoNumber == 3) {
+				ProdServ produto = new ProdServ();
+				ProdServServicos.CadastrarProdServ(produto, true);
+				produtosServicos.add(produto);
+			
+			}else {
+				ProdServ servico = new ProdServ();
+				ProdServServicos.CadastrarProdServ(servico, false);
+				produtosServicos.add(servico);
+			
+			}
+			String [] parametro = {};
+			Start.main(parametro);
 		}
 	}
 	
 
 }
+ 
