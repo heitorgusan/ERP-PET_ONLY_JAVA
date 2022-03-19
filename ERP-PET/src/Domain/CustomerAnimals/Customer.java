@@ -9,6 +9,7 @@ public class Customer {
 	private String mobileNumber;
 	private String address;
 	private List<Animal> animals = new ArrayList<Animal>();
+	private List<Invoice> historicoVendas = new ArrayList<Invoice>();
 	//Constructor
 	public Customer() {
 		

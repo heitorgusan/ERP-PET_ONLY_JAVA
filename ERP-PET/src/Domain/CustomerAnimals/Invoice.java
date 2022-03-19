@@ -5,7 +5,7 @@ public class Invoice {
 	private double total;
 	private boolean isPaid;
 	private MetodosPagamentos metodoPagamento;
-	
+	private Customer cliente;
 	//Constructors
 	public Invoice(double total, boolean isPaid, MetodosPagamentos metodoPagamento) {
 		super();

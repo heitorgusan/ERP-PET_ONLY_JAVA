@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import Domain.CustomerAnimals.Animal;
 import Domain.CustomerAnimals.Customer;
 import Domain.CustomerAnimals.Invoice;
+import Domain.CustomerAnimals.Species;
 import Services.ClientesRelatorio;
 
 public class Start {
@@ -19,7 +21,6 @@ public class Start {
 		
 		int opcaoNumber;
 		String opcaoText;
-		System.out.println("---PetGo---");
 		System.out.println("1-Clientes");
 		System.out.println("2-Vendas");
 		opcaoNumber = leitor.nextInt();
@@ -42,6 +43,7 @@ public class Start {
 				ClientesRelatorio.exibirClientes(customers,false);
 				
 				System.out.println("--------Fim Clientes--------");
+				
 				String [] parametro = {};
 				Start.main(parametro);
 				
@@ -65,6 +67,36 @@ public class Start {
 				System.out.println("---Endereço---");
 				opcaoText = leitor.nextLine();
 				cliente.setAddress(opcaoText);
+				
+				System.out.println("Deseja cadastrar um animal do "+cliente.getName()+" ?");
+				System.out.println("1-Sim");
+				System.out.println("2-Não");
+				opcaoNumber = leitor.nextInt();
+				leitor.nextLine();
+				if(opcaoNumber == 1) {
+					Animal animal = new Animal();
+					System.out.println("-----Cadastro Animal-------------");
+					System.out.println("---Nome Animal---");
+					opcaoText = leitor.nextLine();
+					animal.setName(opcaoText);
+					System.out.println("---Especie---");
+					System.out.println("1-Cachorro");
+					System.out.println("2-Gato");
+					opcaoNumber = leitor.nextInt();
+					leitor.nextLine();
+					if(opcaoNumber == Species.DOG.ID) {
+						animal.setSpecies(Species.DOG);
+					}else {
+						animal.setSpecies(Species.CAT);
+					}
+					
+					System.out.println("---Raça---");
+					opcaoText = leitor.nextLine();
+					animal.setBreed(opcaoText);
+					
+				}else {
+					
+				}
 				
 				String [] parametro = {};
 				Start.main(parametro);
