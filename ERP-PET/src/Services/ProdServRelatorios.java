@@ -12,11 +12,11 @@ public class ProdServRelatorios {
 			if(isProd) {
 				
 				if(produtoServ.getPouS() == ProdutoServico.PRODUTO) {
-					System.out.println(produtoServ .getName());
+					System.out.println(produtosServicos.indexOf(produtoServ) + " " +produtoServ .getName());
 				}
 			}else {
 				if(produtoServ.getPouS() == ProdutoServico.SERVICO) {
-					System.out.println(produtoServ .getName());
+					System.out.println(produtosServicos.indexOf(produtoServ) + " " +produtoServ .getName());
 				}
 			}
 		}

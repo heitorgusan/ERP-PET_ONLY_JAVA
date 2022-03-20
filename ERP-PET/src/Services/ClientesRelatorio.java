@@ -7,26 +7,28 @@ import Domain.CustomerAnimals.Customer;
 
 public class ClientesRelatorio {
 	public static void exibirClientes(List<Customer> customers, boolean exibirIndex) {
+		System.out.println("----------Clientes----------");
 		if(!customers.isEmpty()) {
 			
 			if(exibirIndex == false) {			
 				for(Customer c : customers) {
 					String animaisCliente ="";
 					for(Animal animal : c.getAnimals()) {
-						animaisCliente+=" - "+animal.getName();
+						animaisCliente+=animal.getName()+",";
 					}
-					System.out.println(c.getName()+"\t \nAnimais: "+animaisCliente);
+					System.out.println(c.getName()+"\nAnimais: "+animaisCliente);
 					System.out.println("__________________________________________");
 				}
 				
 			}else {
 				for(Customer c : customers) {
-					System.out.println("Id: " +customers.indexOf(c) +" Nome: "+c.getName());
+					System.out.println("Id " +customers.indexOf(c)+" | "+c.getName());
 				}
 			}
 		}else {
 			System.out.println("Não há clientes cadastrados");
 		}
+		System.out.println("--------Fim Clientes--------");
 	}
 	public static void exibirUnicoCliente(Customer clienteSelecionado) {
 		System.out.println("---Cliente abaixo---");

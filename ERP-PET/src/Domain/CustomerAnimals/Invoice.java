@@ -7,11 +7,9 @@ public class Invoice {
 	private MetodosPagamentos metodoPagamento;
 	private Customer cliente;
 	//Constructors
-	public Invoice(double total, boolean isPaid, MetodosPagamentos metodoPagamento) {
-		super();
-		this.total = total;
-		this.isPaid = isPaid;
-		this.metodoPagamento = metodoPagamento;
+
+	public Invoice() {
+		
 	}
 	
 	//Getters and Setters
@@ -32,6 +30,14 @@ public class Invoice {
 	}
 	public void setMetodoPagamento(MetodosPagamentos metodoPagamento) {
 		this.metodoPagamento = metodoPagamento;
+	}
+
+	public Customer getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Customer cliente) {
+		this.cliente = cliente;
 	}
 	
 	
