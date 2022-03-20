@@ -17,7 +17,7 @@ public class ClientesRelatorio {
 						animaisCliente+=animal.getName()+",";
 					}
 					System.out.println(c.getName()+"\nAnimais: "+animaisCliente);
-					System.out.println("__________________________________________");
+					System.out.println("______________________________________");
 				}
 				
 			}else {

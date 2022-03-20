@@ -7,7 +7,14 @@ import Domain.CustomerAnimals.ProdutoServico;
 
 public class ProdServRelatorios {
 	public static void exibirProdServ(List<ProdServ> produtosServicos, boolean isProd) {
-	
+		System.out.println("----------Lista----------");
+		System.out.println();
+		if(produtosServicos.isEmpty()) {
+			ProdServRelatorios.msgListaVazia();
+			System.out.println("-----Fim Lista--------");
+			
+			return;
+		}
 		for(ProdServ produtoServ : produtosServicos) {
 			if(isProd) {
 				
@@ -20,6 +27,13 @@ public class ProdServRelatorios {
 				}
 			}
 		}
+		System.out.println();
+		System.out.println("-----Fim Lista--------");
 		
+	}
+	
+	public static void msgListaVazia() {
+		System.out.println("A Lista está vazia, cadastre antes");
+		System.out.println();
 	}
 }

@@ -208,9 +208,15 @@ public class Start {
 			
 			if(opcaoNumber == 1) {
 				VendasRelatorio.exibirVendas(invoices);
+				
 			}else {
 				System.out.println("Selecione o cliente pelo Id");
 				ClientesRelatorio.exibirClientes(customers,true);
+				if(customers.isEmpty()) {
+					
+					String [] parametro = {};
+					Start.main(parametro);
+				}
 				opcaoNumber = leitor.nextInt();
 				leitor.nextLine();
 				
@@ -218,6 +224,11 @@ public class Start {
 				Invoice vendaAtual = new Invoice();
 				vendaAtual.setCliente(clienteSelecionado);
 				
+				if(produtosServicos.isEmpty()) {
+					ProdServRelatorios.msgListaVazia();
+					String [] parametro = {};
+					Start.main(parametro);
+				}
 				System.out.println("Adcione os itens");
 				do {
 					
@@ -258,7 +269,7 @@ public class Start {
 			leitor.nextLine();
 			
 			if(opcaoNumber == 1) {
-		
+				
 				ProdServRelatorios.exibirProdServ(produtosServicos, true);
 				
 			}else if(opcaoNumber == 2) {
