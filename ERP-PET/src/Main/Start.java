@@ -164,22 +164,40 @@ public class Start {
 					Customer clienteSelecionado = customers.get(opcaoNumber);
 					
 					ClientesRelatorio.exibirUnicoCliente(clienteSelecionado);
-					System.out.println("1-Cadastrar um novo animal");
-					System.out.println("2-Editar informações cliente");
-					opcaoNumber = leitor.nextInt();
-					leitor.nextLine();
+					opcaoNumber = 0;
+					while(opcaoNumber < 1 || opcaoNumber > 2) {
+						
+						System.out.println("1-Cadastrar um novo animal");
+						System.out.println("2-Editar informações cliente");
+						opcaoNumber = leitor.nextInt();
+						leitor.nextLine();
+						if(opcaoNumber < 1 || opcaoNumber > 2) {
+							System.out.println("Opção inválida, digite 1 ou 2 para continuar");
+							System.out.println();
+						}
+					}
+					
 					if(opcaoNumber == 1) {
 						Animal animal = new Animal();
 						AnimaisServicos.cadastrarAnimal(animal);
 						clienteSelecionado.addAnimal(animal);
 					}else {
-						System.out.println("O quê você deseja editar????");
-						System.out.println("1-Nome");
-						System.out.println("2-Email");
-						System.out.println("3-Celular");
-						System.out.println("4-Endereço");
-						opcaoNumber = leitor.nextInt();
-						leitor.nextLine();
+						opcaoNumber = 0;
+						while(opcaoNumber < 1 || opcaoNumber > 4) {
+							
+							System.out.println("O quê você deseja editar????");
+							System.out.println("1-Nome");
+							System.out.println("2-Email");
+							System.out.println("3-Celular");
+							System.out.println("4-Endereço");
+							opcaoNumber = leitor.nextInt();
+							leitor.nextLine();
+							
+							if(opcaoNumber < 1 || opcaoNumber > 4) {
+								System.out.println("Opção inválida, digite um número entre 1 e 4");
+								System.out.println();
+							}
+						}
 						
 						switch(opcaoNumber) {
 						case 1:
@@ -267,12 +285,19 @@ public class Start {
 					
 					ProdServ ProdServSelecionado = produtosServicos.get(opcaoNumber);
 					vendaAtual.setTotal(ProdServSelecionado.getPreco() + vendaAtual.getTotal());
-					
-					System.out.println("Deseja adcionar mais itens? ");
-					System.out.println("1 - Sim");
-					System.out.println("2 - Não");
-					opcaoNumber = leitor.nextInt();
-					leitor.nextLine();
+					opcaoNumber = 0;
+					while(opcaoNumber < 1 || opcaoNumber > 2) {
+						
+						System.out.println("Deseja adcionar mais itens? ");
+						System.out.println("1 - Sim");
+						System.out.println("2 - Não");
+						opcaoNumber = leitor.nextInt();
+						leitor.nextLine();
+						if(opcaoNumber < 1 || opcaoNumber > 2) {
+							System.out.println("Digite um número válido entre 1 e 2");
+						}
+						System.out.println();
+					}
 					
 				}while(opcaoNumber == 1);
 				invoices.add(vendaAtual);
@@ -285,12 +310,22 @@ public class Start {
 			
 		}else {
 			//Produtos e Serviços
-			System.out.println("1 - Ver lista de Produtos");
-			System.out.println("2 - Ver lista de Serviços");
-			System.out.println("3 - Criar novo Produto");
-			System.out.println("4 - Criar novo Serviço");
-			opcaoNumber = leitor.nextInt();
-			leitor.nextLine();
+			
+			opcaoNumber = 0;
+			while(opcaoNumber < 1 || opcaoNumber > 4) {
+				
+				System.out.println("1 - Ver lista de Produtos");
+				System.out.println("2 - Ver lista de Serviços");
+				System.out.println("3 - Criar novo Produto");
+				System.out.println("4 - Criar novo Serviço");
+				opcaoNumber = leitor.nextInt();
+				leitor.nextLine();
+				
+				if(opcaoNumber < 1 || opcaoNumber > 4) {
+					System.out.println("Digite um número válido entre 1 e 4");
+				}
+				System.out.println();
+			}
 			
 			if(opcaoNumber == 1) {
 				
@@ -315,28 +350,3 @@ public class Start {
 		}
 	}
 }
-
-	/*
-	public static int chamadaInitialMenu(int opcaoNumber) {
-		
-		while(opcaoNumber < 1 || opcaoNumber > 3 ) {
-			System.out.println("1 - Clientes");
-			System.out.println("2 - Vendas");
-			System.out.println("3 - Produtos e Serviços");
-			
-			opcaoNumber = leitor.nextInt();
-			leitor.nextLine();
-	
-			if(opcaoNumber < 1 || opcaoNumber > 3) {
-				System.out.println("Opção inválida, digite um número entre 1 e 3");
-			}
-			System.out.println();
-			
-			
-	
-		}
-		return opcaoNumber;
-	}
-
-}
- */
