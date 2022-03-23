@@ -4,7 +4,8 @@ Estou rodando o programa no console do eclipse.
 O principal motivo para criar esse projetinho são as collections que eu estava/estou treinando.
 
 Vídeo Curto Resumido:
-https://youtu.be/DeZNdQX9QpA
+<a href="https://youtu.be/DeZNdQX9QpA" target="_blank">Clique aqui para abrir no youtube </a>
+
 
 🚧 Em desenvolvimento ✔️ 🚧
 
@@ -20,7 +21,8 @@ A seguinte linguagem de programação foi usada:
 <br>
 
 
-## :mortar_board: Autor
+
+
 <h4 align="center">
-   Por <a href="https://www.linkedin.com/in/aneska-karina-7521795b/" target="_blank"> Heitor Guedes </a>
+   Por <a href="https://www.linkedin.com/in/ssgheitor/" target="_blank"> Heitor Guedes </a>
 </h4>
