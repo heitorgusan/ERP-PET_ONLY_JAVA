@@ -33,7 +33,7 @@ public class ProdServRelatorios {
 	}
 	
 	public static void msgListaVazia() {
-		System.out.println("A Lista está vazia, cadastre antes");
+		System.out.println("A Lista de produtos/serviços está vazia, cadastre antes");
 		System.out.println();
 	}
 }

@@ -18,7 +18,6 @@ import Services.ProdServServicos;
 import Services.VendasRelatorio;
 
 public class Start {
-	
 	static List<Customer> customers = new ArrayList<Customer>();
 	static List<Invoice> invoices = new ArrayList<Invoice>();
 	static List<ProdServ> produtosServicos = new ArrayList<ProdServ>();
@@ -27,34 +26,37 @@ public class Start {
 		// TODO Auto-generated method stub
 		Scanner leitor = new Scanner(System.in);
 		
-		Integer opcaoNumber = 0;
+		int opcaoNumber = 0;
 		String opcaoText;
 		
-		
-		while(opcaoNumber < 1 || opcaoNumber > 3 ) {
-			try {
-				
+		//Chamando o main menu
+	
+		try {
+			
+			while(opcaoNumber < 1 || opcaoNumber > 3 ) {
 				System.out.println("1 - Clientes");
 				System.out.println("2 - Vendas");
 				System.out.println("3 - Produtos e Serviços");
 				
 				opcaoNumber = leitor.nextInt();
 				leitor.nextLine();
-				System.out.println(opcaoNumber.getClass());
+				
 				if(opcaoNumber < 1 || opcaoNumber > 3) {
 					System.out.println("Opção inválida, digite um número entre 1 e 3");
 				}
 				System.out.println();
-			
-			}catch(RuntimeException e) {
-				e.printStackTrace();
-			
-				System.out.println("Digite um número, você digitou um tipo de dado não adequado.");
-		
+				
 			}
-			
-	
+		}catch(InputMismatchException e) {
+			System.out.println("Digite um número ao invés de uma letra");
+			e.printStackTrace();
+			return;
+		}catch(RuntimeException e) {
+			System.out.println("Erro genérico RunTimeException e não é um Mismatch");
+			e.printStackTrace();
+			return;
 		}
+		
 		
 		//Main menu
 		if(opcaoNumber == 1) {
@@ -215,10 +217,18 @@ public class Start {
 			
 		}else if(opcaoNumber == 2){
 			//Opção 2 Vendas
-			System.out.println("1 - Ver histórico de vendas");
-			System.out.println("2 - Adcionar venda");
-			opcaoNumber = leitor.nextInt();
-			leitor.nextLine();
+			opcaoNumber = 0;
+			while(opcaoNumber < 1 | opcaoNumber > 2 ) {
+				
+				System.out.println("1 - Ver histórico de vendas");
+				System.out.println("2 - Adcionar venda");
+				opcaoNumber = leitor.nextInt();
+				leitor.nextLine();
+				if(opcaoNumber < 1 || opcaoNumber > 2) {
+					System.out.println("Digite um número 1 ou 2");
+					System.out.println();
+				}
+			}
 			
 			if(opcaoNumber == 1) {
 				VendasRelatorio.exibirVendas(invoices);
@@ -251,7 +261,7 @@ public class Start {
 					System.out.println();
 					System.out.println("Serviços");
 					ProdServRelatorios.exibirProdServ(produtosServicos, false);
-					System.out.println("Digite o código do item que deseja vender");
+					System.out.println("Digite o código/id do item que deseja vender");
 					opcaoNumber = leitor.nextInt();
 					leitor.nextLine();
 					
@@ -304,7 +314,29 @@ public class Start {
 			Start.main(parametro);
 		}
 	}
+}
+
+	/*
+	public static int chamadaInitialMenu(int opcaoNumber) {
+		
+		while(opcaoNumber < 1 || opcaoNumber > 3 ) {
+			System.out.println("1 - Clientes");
+			System.out.println("2 - Vendas");
+			System.out.println("3 - Produtos e Serviços");
+			
+			opcaoNumber = leitor.nextInt();
+			leitor.nextLine();
 	
+			if(opcaoNumber < 1 || opcaoNumber > 3) {
+				System.out.println("Opção inválida, digite um número entre 1 e 3");
+			}
+			System.out.println();
+			
+			
+	
+		}
+		return opcaoNumber;
+	}
 
 }
- 
+ */
