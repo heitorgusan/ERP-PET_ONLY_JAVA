@@ -1,6 +1,7 @@
 package Main;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -26,20 +27,33 @@ public class Start {
 		// TODO Auto-generated method stub
 		Scanner leitor = new Scanner(System.in);
 		
-		int opcaoNumber = 0;
+		Integer opcaoNumber = 0;
 		String opcaoText;
 		
 		
 		while(opcaoNumber < 1 || opcaoNumber > 3 ) {
-			System.out.println("1 - Clientes");
-			System.out.println("2 - Vendas");
-			System.out.println("3 - Produtos e Serviços");
-			opcaoNumber = leitor.nextInt();
-			leitor.nextLine();
-			if(opcaoNumber < 1 || opcaoNumber > 3 ) {
-				System.out.println("Opção inválida, digite um número entre 1 e 3");
+			try {
+				
+				System.out.println("1 - Clientes");
+				System.out.println("2 - Vendas");
+				System.out.println("3 - Produtos e Serviços");
+				
+				opcaoNumber = leitor.nextInt();
+				leitor.nextLine();
+				System.out.println(opcaoNumber.getClass());
+				if(opcaoNumber < 1 || opcaoNumber > 3) {
+					System.out.println("Opção inválida, digite um número entre 1 e 3");
+				}
+				System.out.println();
+			
+			}catch(RuntimeException e) {
+				e.printStackTrace();
+			
+				System.out.println("Digite um número, você digitou um tipo de dado não adequado.");
+		
 			}
-			System.out.println();
+			
+	
 		}
 		
 		//Main menu

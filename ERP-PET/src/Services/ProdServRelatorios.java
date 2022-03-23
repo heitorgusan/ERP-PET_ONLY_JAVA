@@ -19,16 +19,16 @@ public class ProdServRelatorios {
 			if(isProd) {
 				
 				if(produtoServ.getPouS() == ProdutoServico.PRODUTO) {
-					System.out.println(produtosServicos.indexOf(produtoServ) + " " +produtoServ .getName());
+					System.out.println("Id "+produtosServicos.indexOf(produtoServ) + " | " +produtoServ .getName() + " | R$"+ produtoServ.getPreco());
 				}
 			}else {
 				if(produtoServ.getPouS() == ProdutoServico.SERVICO) {
-					System.out.println(produtosServicos.indexOf(produtoServ) + " " +produtoServ .getName());
+					System.out.println("Id "+produtosServicos.indexOf(produtoServ) + " | " +produtoServ .getName() + " | R$"+ produtoServ.getPreco());
 				}
 			}
 		}
 		System.out.println();
-		System.out.println("-----Fim Lista--------");
+	
 		
 	}
 	
