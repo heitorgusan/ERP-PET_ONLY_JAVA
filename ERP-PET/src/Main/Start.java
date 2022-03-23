@@ -165,14 +165,15 @@ public class Start {
 					
 					ClientesRelatorio.exibirUnicoCliente(clienteSelecionado);
 					opcaoNumber = 0;
-					while(opcaoNumber < 1 || opcaoNumber > 2) {
+					while(opcaoNumber < 1 || opcaoNumber > 3) {
 						
 						System.out.println("1-Cadastrar um novo animal");
 						System.out.println("2-Editar informações cliente");
+						System.out.println("3-Voltar para o menu principal");
 						opcaoNumber = leitor.nextInt();
 						leitor.nextLine();
-						if(opcaoNumber < 1 || opcaoNumber > 2) {
-							System.out.println("Opção inválida, digite 1 ou 2 para continuar");
+						if(opcaoNumber < 1 || opcaoNumber > 3) {
+							System.out.println("Opção inválida, digite um número entre 1 e 3 para continuar");
 							System.out.println();
 						}
 					}
@@ -181,7 +182,7 @@ public class Start {
 						Animal animal = new Animal();
 						AnimaisServicos.cadastrarAnimal(animal);
 						clienteSelecionado.addAnimal(animal);
-					}else {
+					}else if(opcaoNumber == 2){
 						opcaoNumber = 0;
 						while(opcaoNumber < 1 || opcaoNumber > 4) {
 							
@@ -195,8 +196,8 @@ public class Start {
 							
 							if(opcaoNumber < 1 || opcaoNumber > 4) {
 								System.out.println("Opção inválida, digite um número entre 1 e 4");
-								System.out.println();
 							}
+							System.out.println();
 						}
 						
 						switch(opcaoNumber) {
@@ -224,6 +225,10 @@ public class Start {
 						System.out.println("Cliente Editado com Sucesso!!");
 						ClientesRelatorio.exibirUnicoCliente(clienteSelecionado);
 						
+					}else {
+						
+						String [] parametro = {};
+						Start.main(parametro);
 					}
 					
 				}
