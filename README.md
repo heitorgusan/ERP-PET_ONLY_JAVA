@@ -4,7 +4,8 @@ Estou rodando o programa no console do eclipse.
 O principal motivo para criar esse projetinho são as collections que eu estava/estou treinando.
 
 Vídeo Curto Resumido:
-https://youtu.be/DeZNdQX9QpA
+<a href="https://youtu.be/DeZNdQX9QpA" target="_blank">Clique aqui para abrir no youtube </a>
+
 
 🚧 Em desenvolvimento ✔️ 🚧
 
