@@ -21,7 +21,7 @@ A seguinte linguagem de programação foi usada:
 <br>
 
 
-## :mortar_board: Autor
+## :mortar_board
 <h4 align="center">
-   Por <a href="https://www.linkedin.com/in/aneska-karina-7521795b/" target="_blank"> Heitor Guedes </a>
+   Por <a href="https://www.linkedin.com/in/ssgheitor/" target="_blank"> Heitor Guedes </a>
 </h4>
