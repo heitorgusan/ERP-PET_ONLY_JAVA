@@ -264,10 +264,18 @@ public class Start {
 					String [] parametro = {};
 					Start.main(parametro);
 				}
+				
 				opcaoNumber = leitor.nextInt();
 				leitor.nextLine();
+				Customer clienteSelecionado = new Customer();
+				try{
+					clienteSelecionado = customers.get(opcaoNumber);
+					
+				}catch(IndexOutOfBoundsException e) {
+					System.out.println("Esse cliente não existe");
+					e.printStackTrace();
+				}
 				
-				Customer clienteSelecionado = customers.get(opcaoNumber);
 				Invoice vendaAtual = new Invoice();
 				vendaAtual.setCliente(clienteSelecionado);
 				
