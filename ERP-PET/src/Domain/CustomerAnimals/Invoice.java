@@ -31,6 +31,24 @@ public class Invoice {
 	public void setMetodoPagamento(MetodosPagamentos metodoPagamento) {
 		this.metodoPagamento = metodoPagamento;
 	}
+	public void addMetodoPagamento(int id) {
+		if(id ==1) {
+			this.setMetodoPagamento(MetodosPagamentos.CREDITO) ;
+			return;
+		}
+		if(id ==2){
+			this.setMetodoPagamento(MetodosPagamentos.DEBITO);
+			return;
+		}
+		if(id ==3){
+			this.setMetodoPagamento(MetodosPagamentos.DINHEIRO);
+			return;
+		}
+		if(id ==4){
+			this.setMetodoPagamento(MetodosPagamentos.OUTROS);
+			return;
+		}
+	}
 
 	public Customer getCliente() {
 		return cliente;
@@ -38,6 +56,11 @@ public class Invoice {
 
 	public void setCliente(Customer cliente) {
 		this.cliente = cliente;
+	}
+
+	@Override
+	public String toString() {
+		return "Invoice [total=" + total + ", metodoPagamento=" + metodoPagamento + ", cliente=" + cliente + "]";
 	}
 	
 	

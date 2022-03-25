@@ -8,6 +8,7 @@ import java.util.Scanner;
 import Domain.CustomerAnimals.Animal;
 import Domain.CustomerAnimals.Customer;
 import Domain.CustomerAnimals.Invoice;
+import Domain.CustomerAnimals.MetodosPagamentos;
 import Domain.CustomerAnimals.ProdServ;
 import Domain.CustomerAnimals.Species;
 import Services.AnimaisRelatorio;
@@ -311,7 +312,22 @@ public class Start {
 						}
 						System.out.println();
 					}
+					opcaoNumber = 0;
+					while(opcaoNumber <1 || opcaoNumber > 4) {
+						System.out.println("Total: R$ "+vendaAtual.getTotal());
+						System.out.println("Selecione a forma de pagamento");
+						System.out.println("1-Crédito\n2-Débito\n3-Dinheiro\n4-Outros");
+						opcaoNumber = leitor.nextInt();
+						leitor.nextLine();
+						if(opcaoNumber < 1 || opcaoNumber > 4) {
+							System.out.println("Número inválido, digite entre 1 e 4");
+						}
+						
+					}
+					vendaAtual.addMetodoPagamento(opcaoNumber);
 					
+					System.out.println("Detalhes Venda");
+					System.out.println(vendaAtual.toString());
 				}while(opcaoNumber == 1);
 				invoices.add(vendaAtual);
 				
